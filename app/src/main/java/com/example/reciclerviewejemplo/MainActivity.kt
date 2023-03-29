@@ -2,10 +2,6 @@ package com.example.reciclerviewejemplo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.reciclerviewejemplo.adapter.SuperHeroAdapter
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,15 +9,22 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        initRecyclerView()
+        //initRecyclerView()
+
+        // Obtiene una instancia del FragmentManager
+        val fragmentManager = supportFragmentManager
+
+        // Crea una transacción de Fragment
+        val transaction = fragmentManager.beginTransaction()
+
+        // Agrega el Fragment a la transacción
+        val fragment = FragmentHero()
+        transaction.add(R.id.content_heroe, fragment)
+
+        // Confirma la transacción
+        transaction.commit()
 
     }
 
-    private fun initRecyclerView(){
 
-        val recyclerView = findViewById<RecyclerView>(R.id.reciclerSuperHero)
-        recyclerView.layoutManager  = LinearLayoutManager(this)
-        recyclerView.adapter = SuperHeroAdapter(SuperHeroProvider.superHeroList)
-
-    }
 }
