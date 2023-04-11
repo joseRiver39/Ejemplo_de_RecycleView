@@ -3,19 +3,20 @@ package com.example.reciclerviewejemplo.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView.OnItemClickListener
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.reciclerviewejemplo.R
 import com.example.reciclerviewejemplo.SuperHero
+import com.example.reciclerviewejemplo.databinding.ItemSuperheroBinding
+
 /**
- * Autor: fjdlkfjl
- * Clase pra hacer tal cosa
- * Recibe parametros tal y tal**/
-class SuperHeroAdapter(private val superheroList: List<SuperHero>) :
+ * Autor: Jose Rivera
+ * Clase adaptador para mostar datos desde la clase data
+ * Recibe parametros de la lisra de superheroProvider**/
+class SuperHeroAdapter(private val superheroList: List<SuperHero>,
+                       private  val listen : RecyclerViewOnclikc
+                       ) :
     RecyclerView.Adapter<SuperHeroAdapter.SuperHeroViewHolder>() {
 
     // Agregar el OnClick
@@ -34,28 +35,47 @@ class SuperHeroAdapter(private val superheroList: List<SuperHero>) :
     override fun getItemCount(): Int = superheroList.size
 
 
-    class SuperHeroViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+   inner class SuperHeroViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener{
 
-
+        val binding = ItemSuperheroBinding.bind(view)
+       /*
         val superHero = view.findViewById<TextView>(R.id.tvSuperheroName)
         val realName = view.findViewById<TextView>(R.id.tvRealName)
         val publisher = view.findViewById<TextView>(R.id.tvPublisher)
-        val ImageHero = view.findViewById<ImageView>(R.id.ivSuperhero)
+        val ImageHero = view.findViewById<ImageView>(R.id.ivSuperhero)*/
 
         fun render(superHeroModel: SuperHero) {
 
-            superHero.text = superHeroModel.superHero
-            realName.text = superHeroModel.realName
-            publisher.text = superHeroModel.publisher
-            Glide.with(ImageHero.context).load(superHeroModel.photo).into(ImageHero)
-            ImageHero.setOnClickListener {
-                Toast.makeText(
-                    ImageHero.context, superHeroModel.realName,
-                    Toast.LENGTH_SHORT
-                ).show()
+            binding.tvSuperheroName.text = superHeroModel.superHero
+            binding.tvRealName.text = superHeroModel.realName
+            binding.tvPublisher.text = superHeroModel.publisher
+            Glide.with(binding.ivSuperhero.context).load(superHeroModel.photo)
+                .into(binding.ivSuperhero)
+
+
+            itemView.setOnClickListener {
+
+
+
+            }
+        }
+
+
+        override fun onClick(v: View?) {
+            val position =  adapterPosition
+            if(position != RecyclerView.NO_POSITION){
+                listen.itemClickRecyclerView(position)
+                
+
             }
 
         }
+
+
+    }
+
+    interface RecyclerViewOnclikc{
+        fun itemClickRecyclerView(position: Int)
 
     }
 }

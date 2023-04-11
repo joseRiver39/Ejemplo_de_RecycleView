@@ -9,8 +9,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //initRecyclerView()
-
+        replacefragment(Fragment_Hero())
+    }
+     //se crea una funcion para  inicializar fragmento en main activity
+    private fun replacefragment( fragmentHero: Fragment_Hero){
         // Obtiene una instancia del FragmentManager
         val fragmentManager = supportFragmentManager
 
@@ -18,13 +20,14 @@ class MainActivity : AppCompatActivity() {
         val transaction = fragmentManager.beginTransaction()
 
         // Agrega el Fragment a la transacción
-        val fragment = FragmentHero()
-        transaction.add(R.id.content_heroe, fragment)
+        val fragment = Fragment_Hero()
+        transaction.add(R.id.fragmentContainer, fragment)
 
         // Confirma la transacción
         transaction.commit()
+    }
+
 
     }
 
 
-}
