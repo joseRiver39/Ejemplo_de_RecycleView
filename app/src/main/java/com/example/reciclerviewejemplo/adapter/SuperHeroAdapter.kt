@@ -19,12 +19,12 @@ class SuperHeroAdapter(private val superheroList: List<SuperHero>) :
     RecyclerView.Adapter<SuperHeroAdapter.SuperHeroViewHolder>() {
 
     // Agregar el OnClick
-    private lateinit var mListener: onItemClickListener
-    interface onItemClickListener{
+    private lateinit var mListener: OnItemClickListener
+    interface OnItemClickListener{
         fun onItemClick(position: Int)
     }
 
-    fun setOnItemClickListener(listener: onItemClickListener){
+    fun setOnItemClickListener(listener: OnItemClickListener){
         mListener = listener
     }
 
@@ -43,7 +43,7 @@ class SuperHeroAdapter(private val superheroList: List<SuperHero>) :
     override fun getItemCount(): Int = superheroList.size
 
 
-    class SuperHeroViewHolder(view: View, listener: onItemClickListener) : RecyclerView.ViewHolder(view) {
+    class SuperHeroViewHolder(view: View, listener: OnItemClickListener) : RecyclerView.ViewHolder(view) {
 
         val superHero = view.findViewById<TextView>(R.id.tvSuperheroName)
         val realName = view.findViewById<TextView>(R.id.tvRealName)

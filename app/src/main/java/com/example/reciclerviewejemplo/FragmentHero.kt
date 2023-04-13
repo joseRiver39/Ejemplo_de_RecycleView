@@ -27,6 +27,7 @@ class FragmentHero : Fragment() {
             container, false
         )
         initRecyclerView()
+
         return binding.root
     }
 
@@ -41,9 +42,14 @@ class FragmentHero : Fragment() {
             adapter = superHeroAdapter
 
             //Se valida el click
-            superHeroAdapter.setOnItemClickListener(object : SuperHeroAdapter.onItemClickListener{
+            superHeroAdapter.setOnItemClickListener(object : SuperHeroAdapter.OnItemClickListener{
                 override fun onItemClick(position: Int) {
                     // Se llama al fragmento y se le envia la info a mostrar
+                    val fragmentManager = requireActivity().supportFragmentManager
+                    val fragment = FragmentDetailHero()
+                    val transaction = fragmentManager.beginTransaction()
+                    transaction.add(R.id.content_detail, fragment)
+                    transaction.commit()
                 }
 
             })
