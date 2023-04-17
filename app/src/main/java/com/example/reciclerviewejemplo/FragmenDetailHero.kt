@@ -26,14 +26,8 @@ class FragmenDetailHero : Fragment() {
     ): View? {
          val view =inflater.inflate(R.layout.fragment_fragmen_detail_hero, container, false)
         //1.recibir toda la informacion
-        nameHero = arguments?.getString("nameHero")
-        publisher  = arguments?.getString("publisher")
-        realName = arguments?.getString("realName")
-        photo = arguments?.getString("photo")
-        description = arguments?.getString("description")
-
-
-       //2.llamar la funcion
+        loadDatos()
+         //2.llamar la funcion
         loadInfo(view)
        // return inflater.inflate(R.layout.fragment_fragmen_detail_hero, container, false)
         return view
@@ -41,8 +35,15 @@ class FragmenDetailHero : Fragment() {
 
     }
 
+    fun loadDatos(){
+        nameHero = arguments?.getString("nameHero")
+        publisher  = arguments?.getString("publisher")
+        realName = arguments?.getString("realName")
+        photo = arguments?.getString("photo")
+        description = arguments?.getString("description")
+    }
+
  fun loadInfo(view: View){
-    // val textView : TextView?
      //3.setear cada una de la variables en la vista
     val binding = FragmentFragmenDetailHeroBinding.bind(view)
      binding.tvsuperHeroNamDetail.setText(nameHero)
