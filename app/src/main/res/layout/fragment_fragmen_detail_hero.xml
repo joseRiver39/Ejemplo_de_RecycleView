@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/fragmenDetailHero"
     tools:context=".FragmenDetailHero">
 
     <ScrollView
@@ -18,7 +19,7 @@
 
 
             <TextView
-                android:id="@+id/superHeroNamDetail"
+                android:id="@+id/tvsuperHeroNamDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -26,7 +27,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/idPublisher"
+                android:id="@+id/tvPublisherDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -41,7 +42,7 @@
                 tools:src="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/descriptionHero"
+                android:id="@+id/tvdescriptionHero"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"

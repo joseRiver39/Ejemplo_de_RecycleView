@@ -55,7 +55,7 @@ private lateinit var  mListener : OnItemClickListener
      }
      fun render(superHeroModel: SuperHero) {
 
-         binding.tvSuperheroName.text = superHeroModel.superHero
+         binding.tvSuperheroName.text = superHeroModel.nameHero
          binding.tvRealName.text = superHeroModel.realName
          binding.tvPublisher.text = superHeroModel.publisher
          Glide.with(binding.ivSuperhero.context).load(superHeroModel.photo)

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#A1CDE1"
-    android:id="@+id/rec"
+    android:id="@+id/fragmentHero2"
     tools:context=".FragmentHero">
 
     <!-- se implementa RecyclerView en fragment-->

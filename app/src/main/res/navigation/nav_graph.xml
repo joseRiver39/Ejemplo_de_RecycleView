@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graf"
+    app:startDestination="@id/fragmentHero">
+
+    <fragment
+        android:id="@+id/fragmentHero"
+        android:name="com.example.reciclerviewejemplo.FragmentHero"
+        android:label="fragment__hero"
+        tools:layout="@layout/fragment__hero" >
+        <action
+            android:id="@+id/action_fragmentHero_to_fragmenDetailHero"
+            app:destination="@id/fragmenDetailHero" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmenDetailHero"
+        android:name="com.example.reciclerviewejemplo.FragmenDetailHero"
+        android:label="fragment_fragmen_detail_hero"
+        tools:layout="@layout/fragment_fragmen_detail_hero" />
+</navigation>
