@@ -1,8 +1,9 @@
 package com.example.reciclerviewejemplo
 
 data class SuperHero(
-    val superHero:String,
+    val nameHero:String,
     val publisher: String,
     val realName: String,
-    val photo:String
-    )
+    val photo:String,
+    val description: String
+)
